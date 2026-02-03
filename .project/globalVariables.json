@@ -1,0 +1,26 @@
+[
+  {
+    "Constant": false,
+    "Name": "Demo",
+    "TypeFullyQualifiedName": "System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "True",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "SAPSystem",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"(DE110X) EAP ERP: Production\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": false,
+    "Name": "MessageEmailAdresse",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": null,
+    "IsLiteral": false
+  }
+]
