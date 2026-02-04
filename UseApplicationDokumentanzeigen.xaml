@@ -3,7 +3,7 @@
     <x:Property Name="str_Version" Type="InArgument(x:String)" />
     <x:Property Name="str_Dokumentenart" Type="InArgument(x:String)" />
     <x:Property Name="str_dokument" Type="InArgument(x:String)" />
-    <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="OutPutPfad" Type="OutArgument(x:String)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -179,11 +179,11 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1244,8740" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap:VirtualizedContainerService.HintSize="1244,8854" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_pfad">
         <Variable.Default>
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_config(&quot;OutPutFilePath&quot;).ToString + &quot;\&quot;+ MessageEmailAdresse.Split(&quot;@&quot;)(0)" />
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ResultTargetDirVar + &quot;\&quot;+ GlobalVariablesNamespace.GlobalVariables.StartZeitpunkt" />
         </Variable.Default>
       </Variable>
     </Sequence.Variables>
@@ -193,26 +193,18 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;USeApplicationDokumentanzeigen&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Dokument anzeigen: 67" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.RecommendationOnly]" sap:VirtualizedContainerService.HintSize="614,8544" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="00cb34fd-77d6-467f-933a-90aac8e21037" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Dokument anzeigen: 67" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.RecommendationOnly]" sap:VirtualizedContainerService.HintSize="614,8658" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="00cb34fd-77d6-467f-933a-90aac8e21037" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="612,8304" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="612,8418" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="var_clipb" />
               <Variable x:TypeArguments="sd2:DataTable" Name="dt_dokumente" />
               <Variable x:TypeArguments="x:Int32" Default="0" Name="index_dateien" />
               <Variable x:TypeArguments="x:Boolean" Name="elementExists" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_1" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_2" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_3" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_4" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_5" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_6" />
-              <Variable x:TypeArguments="ui:UiElement" Name="outputElement_7" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -220,11 +212,10 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check gibt es überhaupt dokumente (originale)" Exists="[elementExists]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="578,7791" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="00cb34fd-77d6-467f-933a-90aac8e21037" Timeout="1" Version="V5">
+            <uix:NCheckState DisplayName="Check gibt es überhaupt dokumente (originale)" Exists="[elementExists]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="578,7905" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="00cb34fd-77d6-467f-933a-90aac8e21037" Timeout="1" Version="V5">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="576,7115" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="576,7229" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="var123" />
                     <Variable x:TypeArguments="x:String" Name="str_Berechtgruppe" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
@@ -257,17 +248,15 @@
                       <uix:TargetAnchorable DesignTimeRectangle="186, 445, 34, 20" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;sap id='usr/tabsTAB_MAIN/tabpTSMAIN/ssubSCR_MAIN:SAPLCV110:0102/ctxtDRAW-BEGRU' /&gt;" Guid="266b9f10-477f-47d4-a319-7eda755fa5bc" InformativeScreenshot="442d88fd3aa50570acc3073b098d4bed.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Dokument anzeigen: Grunddaten  BEARBEITUNGSZEICHNG. (BZ)' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                     </uix:NGetText.Target>
                   </uix:NGetText>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index_dateien]" DataTable="[dt_dokumente]" DisplayName="For Each Row in Data Table der Dokumente" sap:VirtualizedContainerService.HintSize="542,4793" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index_dateien]" DataTable="[dt_dokumente]" DisplayName="For Each Row in Data Table der Dokumente" sap:VirtualizedContainerService.HintSize="542,4907" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd2:DataRow">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sd2:DataRow" Name="CurrentRow" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,4622" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,4736" sap2010:WorkflowViewState.IdRef="Sequence_12">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="str_currentFile" />
-                            <Variable x:TypeArguments="x:String" Name="str_cond" />
-                            <Variable x:TypeArguments="x:String" Name="bol_exclude" />
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -287,6 +276,14 @@
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[OutPutPfad]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[str_pfad]</InArgument>
+                            </Assign.Value>
                           </Assign>
                           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="506,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                             <ui:CommentOut.Body>

@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="OutPutPfad" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -472,7 +473,7 @@
                 <InArgument x:TypeArguments="x:String" x:Key="str_Version">[in_TransactionItem("Dokumentversion").ToString]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="str_Dokumentenart">[in_TransactionItem("Dokumentart").ToString]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="str_dokument">[in_TransactionItem("Dokument").ToString]</InArgument>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[in_Config]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="OutPutPfad">[OutPutPfad]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
